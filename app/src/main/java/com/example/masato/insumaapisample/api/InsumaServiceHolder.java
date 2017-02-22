@@ -24,7 +24,7 @@ public class InsumaServiceHolder {
     }
 
     private static Retrofit retrofit() {
-        final String ENDPOINT = "http://e4480f6c.ngrok.io/";
+        final String ENDPOINT = "http://5152ad8a.ngrok.io/";
         return new Retrofit.Builder()
                 .baseUrl(ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create())

@@ -9,12 +9,12 @@ import com.google.gson.annotations.SerializedName;
 public class MatchingUser {
 
     @SerializedName("id")
-    private String uniqueId;
+    private int uniqueId;
 
     @SerializedName("destination")
     private String destination;
 
-    public String getUniqueId() {
+    public int getUniqueId() {
         return uniqueId;
     }
 

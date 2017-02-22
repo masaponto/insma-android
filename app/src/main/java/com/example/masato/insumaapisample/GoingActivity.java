@@ -26,8 +26,7 @@ public class GoingActivity extends AppCompatActivity {
     public static final String UNIQUE_ID = "unique_id";
     public static final String MATCHING_ID = "matching_id";
 
-    int matchingId;
-    String uniqueId;
+    int matchingId, uniqueId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class GoingActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         matchingId = intent.getIntExtra(MATCHING_ID, -1);
-        uniqueId = intent.getStringExtra(UNIQUE_ID);
+        uniqueId = intent.getIntExtra(UNIQUE_ID, -1);
 
         InsumaServiceHolder.get()
                 .getNumberOfPeople(new MatchingPointId(matchingId))
@@ -54,7 +53,7 @@ public class GoingActivity extends AppCompatActivity {
     }
 
 
-    public static Intent createIntent(Activity from, int matchingId, String uniqueId) {
+    public static Intent createIntent(Activity from, int matchingId, int uniqueId) {
         Intent intent = new Intent(from, GoingActivity.class);
         intent.putExtra(MATCHING_ID, matchingId);
         intent.putExtra(UNIQUE_ID, uniqueId);

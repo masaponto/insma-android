@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.masato.insumaapisample.Model.MatchingInfo;
 import com.example.masato.insumaapisample.Model.MatchingStatus;
 import com.example.masato.insumaapisample.Model.UserMoveInfo;
@@ -20,8 +22,7 @@ import rx.schedulers.Schedulers;
 
 public class MatchingActivity extends AppCompatActivity {
 
-    int matchingId;
-    String uniqueId;
+    int matchingId, uniqueId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,9 @@ public class MatchingActivity extends AppCompatActivity {
 
 
         String userID = "masaponto";
-        double x = 2.5;
-        double y = 3.4;
-        String destination = "Macdonarld";
+        double x = 36;
+        double y = 140;
+        String destination = "東京";
 
         UserMoveInfo userMoveInfo = new UserMoveInfo(userID, x, y, destination);
 
@@ -63,10 +64,19 @@ public class MatchingActivity extends AppCompatActivity {
                         TextView textView2 = (TextView) findViewById(R.id.textView2);
                         textView2.setText("unique id = " + uniqueId);
 
+
+                        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                        Glide.with(getApplicationContext()).load(getImageURL(uniqueId)).into(imageView);
+
                         goMatchingButton.setEnabled(true);
                     }
                 });
 
+
+    }
+
+    public String getImageURL(int uniqueId) {
+        return "https://s3-ap-northeast-1.amazonaws.com/irohaes-s3/unique_icon/" + uniqueId +".png";
     }
 
 

@@ -14,9 +14,9 @@ public class MatchingInfo {
 
     @SerializedName("uniqueid")
     @Expose
-    private String uniqueId;
+    private int uniqueId;
 
-    public MatchingInfo(int matchingpointId, String uniqueId) {
+    public MatchingInfo(int matchingpointId, int uniqueId) {
         this.matchingpointId = matchingpointId;
         this.uniqueId = uniqueId;
     }
@@ -25,7 +25,7 @@ public class MatchingInfo {
         return matchingpointId;
     }
 
-    public String getUniqueID() {
+    public int getUniqueID() {
         return uniqueId;
     }
 }

@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public String getImageURL(int uniqueId) {
+        return "https://s3-ap-northeast-1.amazonaws.com/irohaes-s3/unique_icon/" + uniqueId +".png";
     }
 
 
